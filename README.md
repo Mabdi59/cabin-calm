@@ -189,6 +189,22 @@ The application will serve the built frontend at http://localhost:5000
 ### Education Content
 - id, title, category, content, created_at
 
+## Security Considerations
+
+### Current Implementation
+- Password hashing with bcrypt
+- JWT-based authentication
+- Environment variables for sensitive data
+- SQL parameterized queries to prevent injection
+
+### Future Improvements
+- Add rate limiting to API endpoints to prevent abuse
+- Implement HTTPS in production
+- Add input validation middleware
+- Set up CORS properly for production domains
+- Implement refresh tokens for better security
+- Add account lockout after failed login attempts
+
 ## Contributing
 
 This is a personal anxiety management tool. Feel free to fork and adapt for your own use.
