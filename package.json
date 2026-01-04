@@ -1,0 +1,24 @@
+{
+  "name": "cabin-calm",
+  "version": "1.0.0",
+  "description": "A passenger-only web app that helps anxious flyers understand turbulence, airplane sounds, and phases of flight in plain language, while tracking their anxiety and triggers over multiple trips.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "client": "npm run dev --prefix client",
+    "install-all": "npm install && cd client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "keywords": ["flight", "anxiety", "tracking", "education"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "sqlite3": "^5.1.7"
+  }
+}

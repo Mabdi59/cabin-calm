@@ -1,0 +1,131 @@
+.education-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.education-header h2 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 2.2em;
+}
+
+.education-intro {
+  color: #666;
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.category-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.category-btn:hover {
+  background: #f0f0f0;
+}
+
+.category-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.article-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.article-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.article-card h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.4em;
+}
+
+.article-category {
+  display: inline-block;
+  background: #e8eaf6;
+  color: #667eea;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.article-content {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.helpful-tips {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #667eea;
+}
+
+.helpful-tips h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.helpful-tips ul {
+  color: #555;
+  line-height: 1.8;
+}
+
+.helpful-tips li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-filters {
+    justify-content: flex-start;
+  }
+
+  .education-header h2 {
+    font-size: 1.8em;
+  }
+}
