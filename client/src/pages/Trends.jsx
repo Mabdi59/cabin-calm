@@ -109,7 +109,7 @@ function Trends() {
             </div>
 
             {/* ===== TURBULENCE DISTRIBUTION ===== */}
-            {stats.turbulenceDistribution && (
+            {stats && stats.turbulenceDistribution && (
               <div className="chart-section">
                 <h3>Turbulence Distribution</h3>
 
@@ -202,7 +202,7 @@ function Trends() {
             )}
 
             {/* ===== COMMON TRIGGERS ===== */}
-            {stats.commonTriggers &&
+            {stats && stats.commonTriggers &&
               Object.keys(stats.commonTriggers).length > 0 && (
                 <div className="chart-section">
                   <h3>Most Common Triggers</h3>
