@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './Auth.css';
 
 function Register() {
+  useDocumentTitle('Register');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +26,7 @@ function Register() {
     }
 
     if (password.length < 6) {
-      setError('Password must be at least 6 characters long');
+      setError('Password must be at least 6 characters');
       return;
     }
 
@@ -35,7 +37,7 @@ function Register() {
       login(response.data.user, response.data.token);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed. Please try again.');
+      setError(err.response?.data?.error || 'Unable to create account. Please try again.');
     } finally {
       setLoading(false);
     }

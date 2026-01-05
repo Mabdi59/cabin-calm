@@ -1,113 +1,142 @@
 .trends-content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 26px;
 }
+
+/* =====================
+   STATS OVERVIEW
+===================== */
 
 .stats-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
 }
 
 .stat-card {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e5e7f2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s, border .25s;
+}
+
+.stat-card:hover {
+  border-color: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102,126,234,.25);
 }
 
 .stat-icon {
-  font-size: 3em;
-  margin-bottom: 10px;
+  font-size: 2.6rem;
+  margin-bottom: .25rem;
 }
 
 .stat-value {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #667eea;
-  margin-bottom: 10px;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 6px;
 }
 
 .stat-label {
-  color: #666;
-  font-size: 1em;
+  color: #777;
+  font-size: .85rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: .05em;
+  font-weight: 600;
 }
 
+/* =====================
+   CHART SECTION CARD
+===================== */
+
 .chart-section {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
 .chart-section h3 {
-  margin-top: 0;
-  margin-bottom: 25px;
-  color: #333;
+  margin: 0 0 18px;
+  color: #1976d2;
+  font-weight: 700;
 }
+
+/* =====================
+   TURBULENCE DISTRIBUTION
+===================== */
 
 .turbulence-chart {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .turbulence-bar-container {
   display: grid;
-  grid-template-columns: 120px 1fr 60px;
+  grid-template-columns: 130px 1fr 60px;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .turbulence-label {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .turbulence-level {
-  font-weight: 600;
+  font-weight: 700;
   text-transform: capitalize;
   color: #333;
 }
 
 .turbulence-count {
-  font-size: 0.85em;
-  color: #999;
+  font-size: .82rem;
+  color: #888;
 }
 
 .turbulence-bar-track {
-  background: #f0f0f0;
-  height: 30px;
-  border-radius: 15px;
+  background: #f1f1f1;
+  height: 26px;
+  border-radius: 14px;
   overflow: hidden;
 }
 
 .turbulence-bar-fill {
   height: 100%;
-  transition: width 0.5s ease;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 10px;
-  color: white;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 700;
+  transition: width .45s ease-out;
+  border-radius: 14px;
 }
 
 .turbulence-percentage {
   text-align: right;
-  font-weight: 600;
+  font-weight: 700;
   color: #666;
+  font-size: .9rem;
 }
+
+/* =====================
+   ANXIETY TIMELINE
+===================== */
 
 .anxiety-timeline {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding: 20px 0;
+  padding: 18px 0;
 }
 
 .timeline-point {
@@ -115,66 +144,72 @@
   flex-direction: column;
   align-items: center;
   min-width: 60px;
+  gap: 4px;
 }
 
 .timeline-date {
-  font-size: 0.8em;
+  font-size: .78rem;
   color: #666;
-  margin-bottom: 10px;
   white-space: nowrap;
 }
 
 .timeline-bar-container {
-  height: 200px;
+  height: 180px;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 10px;
 }
 
 .timeline-bar {
-  width: 40px;
-  border-radius: 5px 5px 0 0;
+  width: 38px;
+  border-radius: 8px 8px 2px 2px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 5px;
-  transition: height 0.3s ease;
-  position: relative;
+  padding-top: 4px;
+  transition: height .35s ease, transform .15s;
+}
+
+.timeline-bar:hover {
+  transform: scale(1.06);
 }
 
 .timeline-value {
-  color: white;
-  font-weight: 600;
-  font-size: 0.9em;
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
 }
 
 .timeline-turbulence {
-  font-size: 0.75em;
-  color: #999;
+  font-size: .75rem;
+  color: #888;
   text-transform: capitalize;
 }
+
+/* =====================
+   COMMON TRIGGERS
+===================== */
 
 .triggers-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
 .trigger-item {
   display: grid;
   grid-template-columns: 150px 1fr 50px;
+  gap: 12px;
   align-items: center;
-  gap: 15px;
 }
 
 .trigger-name {
-  font-weight: 500;
+  font-weight: 700;
   color: #333;
 }
 
 .trigger-bar-container {
-  background: #f0f0f0;
-  height: 25px;
+  background: #f1f1f1;
+  height: 22px;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -182,69 +217,80 @@
 .trigger-bar {
   height: 100%;
   background: linear-gradient(90deg, #667eea, #764ba2);
-  transition: width 0.5s ease;
+  border-radius: 12px;
+  transition: width .45s ease-out;
 }
 
 .trigger-count {
   text-align: right;
-  font-weight: 600;
+  font-weight: 700;
   color: #667eea;
+  font-size: .9rem;
 }
 
+/* =====================
+   INSIGHTS PANEL
+===================== */
+
 .insights-section {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
 .insights-section h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin: 0 0 14px;
   color: #333;
+  font-weight: 700;
 }
 
 .insight-cards {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .insight-card {
-  padding: 20px;
-  background: #f8f9fa;
+  background: #f7f8fc;
   border-left: 4px solid #667eea;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 16px;
+  line-height: 1.6;
 }
 
 .insight-card.positive {
-  background: #d4edda;
-  border-left-color: #28a745;
+  background: #e9f6ea;
+  border-left-color: #2eaf54;
 }
 
 .insight-card p {
   margin: 0;
   color: #333;
-  line-height: 1.6;
 }
 
+/* =====================
+   RESPONSIVE
+===================== */
+
 @media (max-width: 768px) {
+
   .stats-overview {
     grid-template-columns: 1fr;
   }
 
   .turbulence-bar-container,
   .trigger-item {
-    grid-template-columns: 100px 1fr 50px;
-    gap: 10px;
+    grid-template-columns: 105px 1fr 50px;
   }
 
   .anxiety-timeline {
-    gap: 5px;
+    gap: 6px;
   }
 
   .timeline-point {
-    min-width: 50px;
+    min-width: 52px;
   }
 
   .timeline-bar {

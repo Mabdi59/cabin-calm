@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard';
 import FlightForm from './pages/FlightForm';
 import Education from './pages/Education';
 import Trends from './pages/Trends';
+import RealTimeGuide from './pages/RealTimeGuide';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function PrivateRoute({ children }) {
@@ -91,6 +93,15 @@ function App() {
               </PrivateRoute>
             } 
           />
+          <Route 
+            path="/guide" 
+            element={
+              <PrivateRoute>
+                <RealTimeGuide />
+              </PrivateRoute>
+            } 
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </AuthProvider>

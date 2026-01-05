@@ -14,29 +14,43 @@ router.post('/register', async (req, res) => {
     return res.status(400).json({ error: 'Email, password, and name are required' });
   }
 
+  // Validate password strength
+  if (password.length < 8) {
+    return res.status(400).json({ error: 'Password must be at least 8 characters long' });
+  }
+
+  if (!/\d/.test(password)) {
+    return res.status(400).json({ error: 'Password must contain at least one number' });
+  }
+
+  // Normalize email to lowercase
+  const normalizedEmail = email.toLowerCase().trim();
+
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     db.run(
       'INSERT INTO users (email, password, name) VALUES (?, ?, ?)',
-      [email, hashedPassword, name],
+      [normalizedEmail, hashedPassword, name],
       function(err) {
         if (err) {
+          console.error('Registration error:', err);
           if (err.message.includes('UNIQUE constraint failed')) {
             return res.status(400).json({ error: 'Email already registered' });
           }
           return res.status(500).json({ error: 'Database error' });
         }
 
-        const token = jwt.sign({ id: this.lastID, email }, JWT_SECRET, { expiresIn: '7d' });
+        const token = jwt.sign({ id: this.lastID, email: normalizedEmail }, JWT_SECRET, { expiresIn: '7d' });
         res.status(201).json({ 
           message: 'User registered successfully', 
           token,
-          user: { id: this.lastID, email, name }
+          user: { id: this.lastID, email: normalizedEmail, name }
         });
       }
     );
   } catch (error) {
+    console.error('Registration server error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -49,8 +63,12 @@ router.post('/login', (req, res) => {
     return res.status(400).json({ error: 'Email and password are required' });
   }
 
-  db.get('SELECT * FROM users WHERE email = ?', [email], async (err, user) => {
+  // Normalize email to lowercase
+  const normalizedEmail = email.toLowerCase().trim();
+
+  db.get('SELECT * FROM users WHERE email = ?', [normalizedEmail], async (err, user) => {
     if (err) {
+      console.error('Login database error:', err);
       return res.status(500).json({ error: 'Database error' });
     }
 
@@ -70,6 +88,7 @@ router.post('/login', (req, res) => {
         user: { id: user.id, email: user.email, name: user.name }
       });
     } catch (error) {
+      console.error('Login server error:', error);
       res.status(500).json({ error: 'Server error' });
     }
   });

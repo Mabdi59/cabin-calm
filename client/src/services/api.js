@@ -15,6 +15,33 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Handle token expiration and errors
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Handle 401 (Unauthorized) or 403 (Forbidden) - token expired/invalid
+    if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+      // Check if it's not a login/register request
+      const isAuthEndpoint = error.config.url?.includes('/auth/login') || 
+                             error.config.url?.includes('/auth/register');
+      
+      if (!isAuthEndpoint) {
+        // Clear localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        
+        // Store error message
+        localStorage.setItem('sessionExpired', 'true');
+        
+        // Redirect to login
+        window.location.href = '/login';
+      }
+    }
+    
+    return Promise.reject(error);
+  }
+);
+
 export const authAPI = {
   register: (data) => api.post('/auth/register', data),
   login: (data) => api.post('/auth/login', data),

@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './Auth.css';
 
 function Login() {
+  useDocumentTitle('Login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  // Check for session expiration message
+  useEffect(() => {
+    const sessionExpired = localStorage.getItem('sessionExpired');
+    if (sessionExpired) {
+      setError('Your session has expired. Please log in again.');
+      localStorage.removeItem('sessionExpired');
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +33,7 @@ function Login() {
       login(response.data.user, response.data.token);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed. Please try again.');
+      setError(err.response?.data?.error || 'Unable to log in. Please check your email and password.');
     } finally {
       setLoading(false);
     }

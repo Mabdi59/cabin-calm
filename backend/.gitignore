@@ -1,0 +1,26 @@
+# Ignore database files (use backups stored off-server)
+*.db
+!.gitkeep
+
+# Environment variables (never commit secrets!)
+.env
+
+# Dependency directories
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+.pm2/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
