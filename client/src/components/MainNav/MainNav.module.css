@@ -1,0 +1,95 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(245, 245, 245, 0.8);
+    border-bottom: 1px solid rgba(102, 126, 234, 0.08);
+  }
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+.brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
+    text-decoration: none;
+    background: linear-gradient(120deg, var(--indigo), var(--lavender));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+.navLink {
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.08);
+  }
+
+.navLink:hover {
+    color: var(--text-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 15px 35px rgba(118, 75, 162, 0.12);
+  }
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+.primaryCta {
+    padding: 0.65rem 1.1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--indigo), var(--lavender));
+    color: #f7f8ff;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: 0 14px 40px rgba(102, 126, 234, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+.primaryCta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 45px rgba(118, 75, 162, 0.4);
+  }
+
+@media (max-width: 720px) {
+    .navbar {
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .links {
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
