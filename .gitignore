@@ -143,3 +143,6 @@ vite.config.ts.timestamp-*
 *.sqlite
 *.sqlite3
 backend/cabincalm.db
+
+# Local Netlify folder
+.netlify
