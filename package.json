@@ -5,12 +5,14 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "node backend/server.js",
-    "client": "npm run dev --prefix client",
-    "install-all": "npm install && cd client && npm install",
-    "build": "cd client && npm run build"
+    "dev": "node backend/server.js"
   },
-  "keywords": ["flight", "anxiety", "tracking", "education"],
+  "keywords": [
+    "flight",
+    "anxiety",
+    "tracking",
+    "education"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -18,6 +20,8 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "sqlite3": "^5.1.7"
   }
