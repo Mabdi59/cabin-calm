@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
-import './Auth.css';
+import styles from './Auth.module.css';
 
 function Login() {
   useDocumentTitle('Login');
@@ -40,17 +40,17 @@ function Login() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1>CabinCalm</h1>
-        <p className="auth-subtitle">Understanding flight anxiety, one journey at a time</p>
+    <div className={styles.authContainer}>
+      <div className={styles.authCard}>
+        <h1 className={styles.logo}>CabinCalm</h1>
+        <p className={styles.subtitle}>Understanding flight anxiety, one journey at a time</p>
         
-        <h2>Login</h2>
+        <h2 className={styles.heading}>Welcome Back</h2>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className={styles.error}>{error}</div>}
         
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -59,10 +59,11 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="your.email@example.com"
+              className={styles.input}
             />
           </div>
           
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -71,16 +72,17 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter your password"
+              className={styles.input}
             />
           </div>
           
-          <button type="submit" disabled={loading} className="btn-primary">
+          <button type="submit" disabled={loading} className={styles.submitBtn}>
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
         
-        <p className="auth-switch">
-          Don't have an account? <Link to="/register">Register here</Link>
+        <p className={styles.switchText}>
+          Don't have an account? <Link to="/register" className={styles.link}>Register here</Link>
         </p>
       </div>
     </div>

@@ -1,0 +1,339 @@
+.dashboard {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.topBar {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.08);
+  padding: 1rem 1.5rem;
+}
+
+.userInfo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.greeting {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.logoutBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background: linear-gradient(135deg, var(--indigo), var(--lavender));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+  background: linear-gradient(120deg, var(--indigo), var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.addBtn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--indigo), var(--lavender));
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(118, 75, 162, 0.4);
+}
+
+.error {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #d32f2f;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top-color: var(--indigo);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.emptyState {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.emptyState h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.emptyIntro {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.emptyFeatures {
+  background: rgba(247, 248, 255, 0.9);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.emptyFeatures h3 {
+  color: var(--highlight);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.emptyFeatures ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emptyFeatures li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.emptyReassurance {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.primaryBtn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--indigo), var(--lavender));
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(118, 75, 162, 0.4);
+}
+
+.flightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.flightCard {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  transition: all 0.25s ease;
+}
+
+.flightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(45, 55, 72, 0.18);
+  border-color: rgba(118, 75, 162, 0.25);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.12);
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.airport {
+  font-size: 1.1rem;
+}
+
+.arrow {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.anxietyBadge {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardBody {
+  margin-bottom: 1rem;
+}
+
+.detailRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: flex-start;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 70px;
+}
+
+.value {
+  color: var(--text-primary);
+}
+
+.triggers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.trigger {
+  padding: 0.3rem 0.65rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+.notes {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(102, 126, 234, 0.08);
+}
+
+.notes p {
+  margin: 0.25rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.editBtn, .deleteBtn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.editBtn {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--indigo);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.editBtn:hover {
+  background: linear-gradient(135deg, var(--indigo), var(--lavender));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.deleteBtn {
+  background: rgba(244, 67, 54, 0.08);
+  color: #d32f2f;
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.deleteBtn:hover {
+  background: #f44336;
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .flightsGrid {
+    grid-template-columns: 1fr;
+  }
+}

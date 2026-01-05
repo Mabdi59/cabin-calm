@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { educationAPI } from '../services/api';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
-import './Education.css';
+import styles from './Education.module.css';
 
 function Education() {
   useDocumentTitle('Education');
@@ -68,34 +68,27 @@ function Education() {
   };
 
   return (
-    <div className="dashboard">
-      <nav className="navbar">
-        <div className="navbar-content">
-          <h1>CabinCalm</h1>
-          <div className="nav-links">
-            <Link to="/dashboard">Flights</Link>
-            <Link to="/education">Education</Link>
-            <Link to="/trends">Trends</Link>
-            <Link to="/guide">In-Flight Guide</Link>
-            <span className="user-name">Hi, {user?.name}</span>
-            <button onClick={logout} className="btn-logout">Logout</button>
-          </div>
+    <div className={styles.page}>
+      <div className={styles.topBar}>
+        <div className={styles.userInfo}>
+          <span className={styles.greeting}>Hi, {user?.name}</span>
+          <button onClick={logout} className={styles.logoutBtn}>Logout</button>
         </div>
-      </nav>
+      </div>
 
-      <div className="container">
-        <div className="education-header">
-          <h2>Understanding Flight Anxiety</h2>
-          <p className="education-intro">
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1>Understanding Flight Anxiety</h1>
+          <p className={styles.intro}>
             Learn what different sensations, movements, and sounds mean during flight. Clarity reduces uncertainty, and uncertainty drives anxiety.
           </p>
         </div>
 
-        <div className="category-filters">
+        <div className={styles.filters}>
           {categories.map(cat => (
             <button
               key={cat.id}
-              className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+              className={`${styles.filterBtn} ${selectedCategory === cat.id ? styles.active : ''}`}
               onClick={() => setSelectedCategory(cat.id)}
             >
               {cat.label}
@@ -104,40 +97,39 @@ function Education() {
         </div>
 
         {error && (
-          <div className="error-message">
+          <div className={styles.error}>
             {error}
-            <button 
-              onClick={loadArticles} 
-              style={{ marginLeft: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}
-              className="btn-secondary"
-            >
+            <button onClick={loadArticles} className={styles.retryBtn}>
               Retry
             </button>
           </div>
         )}
 
         {loading ? (
-          <div className="loading">Loading content...</div>
+          <div className={styles.loading}>
+            <div className={styles.spinner}></div>
+            <p>Loading content...</p>
+          </div>
         ) : articles.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-icon">📚</div>
-            <h3>No articles found</h3>
+          <div className={styles.emptyState}>
+            <div className={styles.emptyIcon}>📚</div>
+            <h2>No articles found</h2>
             <p>Try selecting a different category or check back later.</p>
           </div>
         ) : (
-          <div className="articles-grid">
+          <div className={styles.articlesGrid}>
             {articles.map(article => (
-              <div key={article.id || article._id} className="article-card">
-                <div className="article-icon">
+              <div key={article.id || article._id} className={styles.articleCard}>
+                <div className={styles.articleIcon}>
                   {getCategoryIcon(article.category)}
                 </div>
                 <h3>{article.title}</h3>
-                <div className="article-category">
+                <div className={styles.category}>
                   {formatCategoryLabel(article.category)}
                 </div>
-                <p className="article-summary">{getSummary(article.content)}</p>
+                <p className={styles.summary}>{getSummary(article.content)}</p>
                 <button 
-                  className="btn-read-more"
+                  className={styles.readMoreBtn}
                   onClick={() => setSelectedArticle(article)}
                 >
                   Read More
@@ -147,7 +139,7 @@ function Education() {
           </div>
         )}
 
-        <div className="helpful-tips">
+        <div className={styles.tips}>
           <h3>💡 Quick Tips for Managing Flight Anxiety</h3>
           <ul>
             <li>Practice deep breathing exercises before and during the flight</li>
@@ -161,19 +153,19 @@ function Education() {
       </div>
 
       {selectedArticle && (
-        <div className="article-modal" onClick={() => setSelectedArticle(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedArticle(null)}>
+        <div className={styles.modal} onClick={() => setSelectedArticle(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={() => setSelectedArticle(null)}>
               ×
             </button>
-            <div className="modal-icon">
+            <div className={styles.modalIcon}>
               {getCategoryIcon(selectedArticle.category)}
             </div>
             <h2>{selectedArticle.title}</h2>
-            <div className="modal-category">
+            <div className={styles.modalCategory}>
               {formatCategoryLabel(selectedArticle.category)}
             </div>
-            <p className="modal-text">{selectedArticle.content}</p>
+            <p className={styles.modalText}>{selectedArticle.content}</p>
           </div>
         </div>
       )}

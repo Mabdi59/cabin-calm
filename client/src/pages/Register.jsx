@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
-import './Auth.css';
+import styles from './Auth.module.css';
 
 function Register() {
   useDocumentTitle('Register');
@@ -44,17 +44,17 @@ function Register() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1>CabinCalm</h1>
-        <p className="auth-subtitle">Understanding flight anxiety, one journey at a time</p>
+    <div className={styles.authContainer}>
+      <div className={styles.authCard}>
+        <h1 className={styles.logo}>CabinCalm</h1>
+        <p className={styles.subtitle}>Understanding flight anxiety, one journey at a time</p>
         
-        <h2>Register</h2>
+        <h2 className={styles.heading}>Create Account</h2>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className={styles.error}>{error}</div>}
         
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="name">Name</label>
             <input
               type="text"
@@ -63,10 +63,11 @@ function Register() {
               onChange={(e) => setName(e.target.value)}
               required
               placeholder="Your name"
+              className={styles.input}
             />
           </div>
           
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -75,10 +76,11 @@ function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="your.email@example.com"
+              className={styles.input}
             />
           </div>
           
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -87,10 +89,11 @@ function Register() {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="At least 6 characters"
+              className={styles.input}
             />
           </div>
           
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
@@ -99,16 +102,17 @@ function Register() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               placeholder="Re-enter your password"
+              className={styles.input}
             />
           </div>
           
-          <button type="submit" disabled={loading} className="btn-primary">
+          <button type="submit" disabled={loading} className={styles.submitBtn}>
             {loading ? 'Creating account...' : 'Register'}
           </button>
         </form>
         
-        <p className="auth-switch">
-          Already have an account? <Link to="/login">Login here</Link>
+        <p className={styles.switchText}>
+          Already have an account? <Link to="/login" className={styles.link}>Login here</Link>
         </p>
       </div>
     </div>
