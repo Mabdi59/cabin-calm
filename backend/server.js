@@ -13,6 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
 
+// Trust Railway proxy for rate limiting and IP detection
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 
