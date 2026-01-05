@@ -67,6 +67,7 @@ db.serialize(() => {
       title TEXT NOT NULL,
       category TEXT NOT NULL,
       content TEXT NOT NULL,
+      summary TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
