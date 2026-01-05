@@ -117,3 +117,26 @@
 .auth-switch a:hover {
   text-decoration: underline;
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 20px;
+  }
+
+  .auth-box {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+
+  .auth-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .auth-form input,
+  .auth-form button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}

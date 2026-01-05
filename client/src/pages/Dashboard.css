@@ -450,20 +450,96 @@
 @media (max-width: 768px) {
 
   .container {
-    padding: 26px 14px;
+    padding: 20px 14px;
+  }
+
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .navbar-content {
+    padding: 0 14px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .navbar h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  .nav-links a {
+    padding: 6px 10px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .btn-logout {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .page-header h2 {
+    font-size: 1.6em;
+    text-align: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
   }
 
   .grid,
   .flights-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .card,
   .flight-card {
-    padding: 16px;
+    padding: 18px;
+  }
+
+  .flight-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .flight-route {
+    font-size: 1.3em;
+  }
+
+  .anxiety-badge {
+    font-size: 1.1em;
+  }
+
+  .flight-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+    justify-content: center;
   }
 }

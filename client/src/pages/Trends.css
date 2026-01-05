@@ -280,20 +280,57 @@
     grid-template-columns: 1fr;
   }
 
+  .stat-card {
+    padding: 20px;
+  }
+
+  .chart-section {
+    padding: 20px;
+  }
+
   .turbulence-bar-container,
   .trigger-item {
-    grid-template-columns: 105px 1fr 50px;
+    grid-template-columns: 95px 1fr 45px;
+    gap: 8px;
+  }
+
+  .turbulence-level,
+  .trigger-name {
+    font-size: 0.9rem;
+  }
+
+  .turbulence-count {
+    font-size: 0.75rem;
   }
 
   .anxiety-timeline {
     gap: 6px;
+    padding: 12px 0;
   }
 
   .timeline-point {
-    min-width: 52px;
+    min-width: 48px;
   }
 
   .timeline-bar {
-    width: 30px;
+    width: 28px;
+  }
+
+  .timeline-bar-container {
+    height: 150px;
+  }
+
+  .timeline-date,
+  .timeline-turbulence {
+    font-size: 0.7rem;
+  }
+
+  .insights-section {
+    padding: 20px;
+  }
+
+  .insight-card {
+    padding: 14px;
+    font-size: 0.9rem;
   }
 }
