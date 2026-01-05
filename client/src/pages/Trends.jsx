@@ -162,12 +162,14 @@ function Trends() {
             )}
 
             {/* ===== ANXIETY TREND ===== */}
-            {stats.anxietyTrend?.length > 0 && (
+            {Array.isArray(stats.anxietyTrend) && stats.anxietyTrend.length > 0 && (
               <div className="chart-section">
                 <h3>Anxiety Trend Over Time</h3>
 
                 <div className="anxiety-timeline">
-                  {stats.anxietyTrend.map((entry, index) => (
+                  {stats.anxietyTrend
+                    .filter(entry => entry && entry.date && typeof entry.anxiety === 'number')
+                    .map((entry, index) => (
                     <div key={index} className="timeline-point">
                       <div className="timeline-date">
                         {new Date(entry.date).toLocaleDateString(
@@ -193,7 +195,7 @@ function Trends() {
                       </div>
 
                       <div className="timeline-turbulence">
-                        {entry.turbulence}
+                        {entry.turbulence || '-'}
                       </div>
                     </div>
                   ))}
@@ -203,12 +205,14 @@ function Trends() {
 
             {/* ===== COMMON TRIGGERS ===== */}
             {stats && stats.commonTriggers &&
+              typeof stats.commonTriggers === 'object' &&
               Object.keys(stats.commonTriggers).length > 0 && (
                 <div className="chart-section">
                   <h3>Most Common Triggers</h3>
 
                   <div className="triggers-list">
                     {Object.entries(stats.commonTriggers)
+                      .filter(([trigger, count]) => trigger && typeof count === 'number')
                       .sort((a, b) => b[1] - a[1])
                       .map(([trigger, count]) => (
                         <div key={trigger} className="trigger-item">
@@ -221,7 +225,9 @@ function Trends() {
                               className="trigger-bar"
                               style={{
                                 width: `${
-                                  (count / stats.totalFlights) * 100
+                                  stats.totalFlights > 0
+                                    ? (count / stats.totalFlights) * 100
+                                    : 0
                                 }%`,
                               }}
                             />
