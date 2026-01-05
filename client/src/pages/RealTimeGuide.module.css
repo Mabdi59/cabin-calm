@@ -1,0 +1,408 @@
+/* HEADER */
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.guide-header h2 {
+  font-size: 2.35rem;
+  margin-bottom: 0.4rem;
+  color: #1976d2;
+  font-weight: 700;
+}
+
+.guide-subtitle {
+  font-size: 1.05rem;
+  color: #666;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* SEARCH */
+
+.search-section {
+  margin-bottom: 3rem;
+}
+
+.search-box {
+  max-width: 720px;
+  margin: 0 auto 1.6rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 1.4rem;
+  font-size: 1.05rem;
+  border: 2px solid #1976d2;
+  border-radius: 48px;
+  outline: none;
+  transition: border .25s, box-shadow .2s, background .15s;
+  background: #fafcff;
+}
+
+.search-input:focus {
+  border-color: #0d47a1;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, .12);
+}
+
+.clear-search-btn {
+  padding: 0.75rem 1.1rem;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all .22s;
+}
+
+.clear-search-btn:hover {
+  background: #f3f3f3;
+}
+
+.search-results {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.search-results h3 {
+  margin-bottom: 1.25rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.result-count {
+  color: #1976d2;
+}
+
+/* SEARCH TAG */
+
+.sensation-phase-label {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* PHASE GRID */
+
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 3rem;
+}
+
+.phase-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.4rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all .28s ease;
+}
+
+.phase-card:hover {
+  border-color: #1976d2;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0,0,0,.08);
+}
+
+.phase-card.active {
+  border-color: #1976d2;
+  background: #e8f2ff;
+  transform: scale(1.03);
+  box-shadow: 0 5px 18px rgba(25,118,210,.22);
+}
+
+.phase-icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.phase-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.phase-count {
+  font-size: .88rem;
+  color: #666;
+  margin: 0;
+}
+
+/* SENSATION SECTION */
+
+.sensations-section {
+  margin-top: 1.6rem;
+  animation: fadeIn .35s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.phase-details h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: #1976d2;
+  text-align: center;
+}
+
+.sensations-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+/* DROPDOWNS */
+
+.sensation-dropdown {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .28s ease;
+}
+
+.sensation-dropdown.expanded {
+  border-color: #1976d2;
+  box-shadow: 0 4px 12px rgba(25,118,210,.14);
+}
+
+.sensation-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.4rem;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background .22s;
+  font-size: 1rem;
+}
+
+.sensation-dropdown:hover .sensation-header {
+  background: #f7f7f7;
+}
+
+.sensation-dropdown.expanded .sensation-header {
+  background: #e9f1ff;
+}
+
+.search-result-header {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  flex: 1;
+}
+
+.sensation-question {
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.dropdown-arrow {
+  font-size: .95rem;
+  color: #1976d2;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+  transition: transform .25s;
+}
+
+.sensation-dropdown.expanded .dropdown-arrow {
+  transform: rotate(90deg);
+}
+
+/* CONTENT */
+
+.sensation-content {
+  padding: 1.3rem;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+  animation: slideDown .28s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 600px; }
+}
+
+.sensation-why {
+  margin-bottom: .6rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.sensation-why strong {
+  color: #1976d2;
+}
+
+.sensation-normal {
+  margin-bottom: .8rem;
+}
+
+.normal-badge {
+  display: inline-block;
+  background: #4caf50;
+  color: #ffffff;
+  padding: .38rem 1rem;
+  border-radius: 18px;
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.sensation-detail {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #444;
+  line-height: 1.65;
+  margin: 0;
+  border-left: 4px solid #1976d2;
+}
+
+/* GUIDE INSTRUCTIONS */
+
+.guide-instructions {
+  max-width: 900px;
+  margin: 2.6rem auto;
+}
+
+.instruction-card {
+  background: #ffffff;
+  border: 2px solid #2196f3;
+  border-radius: 12px;
+  padding: 1.9rem;
+  margin-bottom: 2rem;
+}
+
+.instruction-card h3 {
+  color: #1976d2;
+  margin-bottom: .8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.instruction-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instruction-card li {
+  padding: .7rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  line-height: 1.6;
+}
+
+.instruction-card li:last-child {
+  border-bottom: none;
+}
+
+.instruction-card strong {
+  color: #1976d2;
+}
+
+/* REASSURANCE */
+
+.reassurance-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 1.9rem;
+}
+
+.reassurance-box h3 {
+  margin-bottom: 1.3rem;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.reassurance-items {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.reassurance-item {
+  display: flex;
+  gap: 1rem;
+  background: rgba(255,255,255,.12);
+  padding: 1.1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.reassurance-icon {
+  font-size: 2rem;
+}
+
+.reassurance-item p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.reassurance-item strong {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .guide-header h2 {
+    font-size: 2rem;
+  }
+
+  .phases-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .phase-card {
+    padding: 1rem;
+  }
+
+  .phase-icon {
+    font-size: 2rem;
+  }
+
+  .search-input {
+    font-size: 1rem;
+    padding: .85rem 1.2rem;
+  }
+
+  .instruction-card,
+  .reassurance-box {
+    padding: 1.45rem;
+  }
+
+  .reassurance-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}

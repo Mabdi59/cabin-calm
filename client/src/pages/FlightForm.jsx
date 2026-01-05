@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { flightsAPI } from "../services/api";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import SearchableSelect from "../components/SearchableSelect";
-import "./FlightForm.css";
+import styles from "./FlightForm.module.css";
 
 function FlightForm() {
   const { id } = useParams();

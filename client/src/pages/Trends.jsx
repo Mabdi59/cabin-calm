@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { flightsAPI } from '../services/api';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
-import './Trends.css';
+import styles from './Trends.module.css';
 
 function Trends() {
   useDocumentTitle('Anxiety Trends');

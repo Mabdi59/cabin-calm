@@ -1,0 +1,336 @@
+.trends-content {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* =====================
+   STATS OVERVIEW
+===================== */
+
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  text-align: center;
+  border: 2px solid #e5e7f2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s, border .25s;
+}
+
+.stat-card:hover {
+  border-color: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102,126,234,.25);
+}
+
+.stat-icon {
+  font-size: 2.6rem;
+  margin-bottom: .25rem;
+}
+
+.stat-value {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  color: #777;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-weight: 600;
+}
+
+/* =====================
+   CHART SECTION CARD
+===================== */
+
+.chart-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.chart-section h3 {
+  margin: 0 0 18px;
+  color: #1976d2;
+  font-weight: 700;
+}
+
+/* =====================
+   TURBULENCE DISTRIBUTION
+===================== */
+
+.turbulence-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.turbulence-bar-container {
+  display: grid;
+  grid-template-columns: 130px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+}
+
+.turbulence-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.turbulence-level {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #333;
+}
+
+.turbulence-count {
+  font-size: .82rem;
+  color: #888;
+}
+
+.turbulence-bar-track {
+  background: #f1f1f1;
+  height: 26px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.turbulence-bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  color: #fff;
+  font-weight: 700;
+  transition: width .45s ease-out;
+  border-radius: 14px;
+}
+
+.turbulence-percentage {
+  text-align: right;
+  font-weight: 700;
+  color: #666;
+  font-size: .9rem;
+}
+
+/* =====================
+   ANXIETY TIMELINE
+===================== */
+
+.anxiety-timeline {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 18px 0;
+}
+
+.timeline-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  gap: 4px;
+}
+
+.timeline-date {
+  font-size: .78rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.timeline-bar-container {
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.timeline-bar {
+  width: 38px;
+  border-radius: 8px 8px 2px 2px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  transition: height .35s ease, transform .15s;
+}
+
+.timeline-bar:hover {
+  transform: scale(1.06);
+}
+
+.timeline-value {
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.timeline-turbulence {
+  font-size: .75rem;
+  color: #888;
+  text-transform: capitalize;
+}
+
+/* =====================
+   COMMON TRIGGERS
+===================== */
+
+.triggers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trigger-item {
+  display: grid;
+  grid-template-columns: 150px 1fr 50px;
+  gap: 12px;
+  align-items: center;
+}
+
+.trigger-name {
+  font-weight: 700;
+  color: #333;
+}
+
+.trigger-bar-container {
+  background: #f1f1f1;
+  height: 22px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.trigger-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 12px;
+  transition: width .45s ease-out;
+}
+
+.trigger-count {
+  text-align: right;
+  font-weight: 700;
+  color: #667eea;
+  font-size: .9rem;
+}
+
+/* =====================
+   INSIGHTS PANEL
+===================== */
+
+.insights-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.insights-section h3 {
+  margin: 0 0 14px;
+  color: #333;
+  font-weight: 700;
+}
+
+.insight-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.insight-card {
+  background: #f7f8fc;
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+  padding: 16px;
+  line-height: 1.6;
+}
+
+.insight-card.positive {
+  background: #e9f6ea;
+  border-left-color: #2eaf54;
+}
+
+.insight-card p {
+  margin: 0;
+  color: #333;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media (max-width: 768px) {
+
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .chart-section {
+    padding: 20px;
+  }
+
+  .turbulence-bar-container,
+  .trigger-item {
+    grid-template-columns: 95px 1fr 45px;
+    gap: 8px;
+  }
+
+  .turbulence-level,
+  .trigger-name {
+    font-size: 0.9rem;
+  }
+
+  .turbulence-count {
+    font-size: 0.75rem;
+  }
+
+  .anxiety-timeline {
+    gap: 6px;
+    padding: 12px 0;
+  }
+
+  .timeline-point {
+    min-width: 48px;
+  }
+
+  .timeline-bar {
+    width: 28px;
+  }
+
+  .timeline-bar-container {
+    height: 150px;
+  }
+
+  .timeline-date,
+  .timeline-turbulence {
+    font-size: 0.7rem;
+  }
+
+  .insights-section {
+    padding: 20px;
+  }
+
+  .insight-card {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
+}

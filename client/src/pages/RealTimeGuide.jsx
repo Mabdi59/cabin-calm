@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import "./RealTimeGuide.css";
+import styles from "./RealTimeGuide.module.css";
 
 function RealTimeGuide() {
   useDocumentTitle('In-Flight Guide');
