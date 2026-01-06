@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import MainNav from './components/MainNav/MainNav';
 import Home from './pages/Home/Home';
@@ -33,13 +33,15 @@ function PublicRoute({ children }) {
   return !user ? children : <Navigate to="/dashboard" />;
 }
 
-function App() {
+function Layout() {
+  const location = useLocation();
+  const showMainNav = location.pathname === '/';
+  
   return (
-    <AuthProvider>
-      <Router>
-        <MainNav />
-        <Routes>
-          <Route path="/" element={<Home />} />
+    <>
+      {showMainNav && <MainNav />}
+      <Routes>
+        <Route path="/" element={<Home />} />
           <Route 
             path="/login" 
             element={
@@ -104,7 +106,16 @@ function App() {
               </PrivateRoute>
             } 
           />
-          <Route path="*" element={<NotFound />} />
+        >
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Layout />
+      </  <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </AuthProvider>
